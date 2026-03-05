@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Cloud App</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 50px 60px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      max-width: 520px;
+      width: 90%;
+    }
+
+    .logo {
+      font-size: 64px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      color: #2d2d2d;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: #888;
+      font-size: 1rem;
+      margin-bottom: 30px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      padding: 6px 18px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      margin-bottom: 30px;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      margin: 30px 0;
+      gap: 10px;
+    }
+
+    .stat {
+      flex: 1;
+      background: #f8f9ff;
+      border-radius: 12px;
+      padding: 16px 10px;
+    }
+
+    .stat-number {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #667eea;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: #888;
+      margin-top: 4px;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      padding: 14px 36px;
+      border-radius: 50px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin-top: 10px;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(102,126,234,0.5);
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-size: 0.8rem;
+      color: #bbb;
+    }
+
+    #greeting {
+      margin-top: 16px;
+      font-size: 1.1rem;
+      color: #667eea;
+      font-weight: 600;
+      min-height: 28px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">&#9729;</div>
+    <h1>My Cloud App</h1>
+    <p class="subtitle">Built with Claude Code &bull; Hosted on Azure</p>
+    <span class="badge">Live on Azure Static Web Apps</span>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-number" id="counter">0</div>
+        <div class="stat-label">Clicks</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">1</div>
+        <div class="stat-label">Page</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">&#9733;</div>
+        <div class="stat-label">Deployed</div>
+      </div>
+    </div>
+
+    <button class="btn" onclick="handleClick()">Say Hello!</button>
+    <div id="greeting"></div>
+
+    <div class="footer">
+      Deployed from GitHub &rarr; Azure &bull; Powered by Claude Code
+    </div>
+  </div>
+
+  <script>
+    let count = 0;
+    const messages = [
+      "Hello from Azure!",
+      "Claude Code built this!",
+      "GitHub + Azure = ✨",
+      "Keep clicking!",
+      "You're awesome!",
+    ];
+
+    function handleClick() {
+      count++;
+      document.getElementById('counter').textContent = count;
+      const msg = messages[(count - 1) % messages.length];
+      document.getElementById('greeting').textContent = msg;
+    }
+  </script>
+</body>
+</html>
